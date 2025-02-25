@@ -1,7 +1,7 @@
 # 必要なライブラリをインポート
-import pygwalker as pyg
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import pygwalker as pyg
 from pygwalker.api.streamlit import StreamlitRenderer
 from streamlit.components.v1 import html
 
@@ -26,11 +26,11 @@ except Exception as e:
 st.write('勝手にいじれます')
 
 # ここで pyg_html を定義
-pyg_html = StreamlitRenderer(df)
+pyg_html = pyg.to_html(df)
 
 # pyg_html をカスタムの div でラップして html() に渡す
 container_html = f"""
-<div class="my-custom-container" align="center">
+<div class="my-custom-container">
   {pyg_html}
 </div>
 """
